@@ -1,0 +1,1 @@
+print('Działa aplikacja testowa!')
