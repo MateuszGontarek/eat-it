@@ -1,1 +1,0 @@
-print('Działa aplikacja testowa!')
