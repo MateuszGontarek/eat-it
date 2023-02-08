@@ -1,26 +1,28 @@
-from flask import Flask, Response
+from flask import Flask, Response, request, jsonify
+from eat_it.controllers import AddUserController, AddUserRequest
+from eat_it.repositories import UserRepository
+
+
 app = Flask(__name__)
 
-@app.get('/ping')
+
+@app.get("/ping")
 def ping():
-    return Response(status = 501)
+    return Response(status=501)
 
-@app.get('/users')
-def users():
-    return Response(status = 501)
-
-@app.patch('/users/<user_id>')
-def user(user_id):
-    return Response(status = 501)
 
 @app.post('/users')
-def create_user():
-    return Response(status = 501)
+def create_user() -> Response:
+    user = request.json
+    repository = UserRepository()
+    controller = AddUserController(repository=repository)
+    add_user_request = AddUserRequest(user=user)
+    controller.add(request=add_user_request)
+    return jsonify(user)
 
-@app.delete('/users/<user_id>')
-def delete_user(user_id):
-    return Response(status = 501)
 
-@app.put('/users/<user_id>')
-def update_user(user_id):
-    return Response(status = 501)
+@app.put('/users')
+def update_user() -> Response:
+    user = request.json
+    return jsonify(user)
+
