@@ -61,3 +61,12 @@ def get_user() -> Response:
     get_user_request = UserRequest(user=user)
     user = controller.get(request=get_user_request)
     return jsonify(user)
+
+@app.get('/users/<id>')
+def get_users(id):
+    user = request.json
+    repository = UserRepository()
+    controller = GetUserController(repository=repository)
+    get_user_request = UserRequest(user=user)
+    user = controller.get(request=get_user_request)
+    return 501

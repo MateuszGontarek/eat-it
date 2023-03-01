@@ -25,30 +25,35 @@ def test_app_user_update_endpoint() -> None:
 def test_app_user_get_endpoint() -> None:
     payload = {"first_name": "Jan", "last_name": "Kowalski"}
     client = app.test_client()
-    response = client.get(path='/users', json=payload)
+    response = client.get(path='/users/<id>', json=payload)
     assert response.status_code == 200
 
 def test_app_user_delete_endpoint() -> None:
     payload = {"first_name": "Jan", "last_name": "Kowalski"}
     client = app.test_client()
-    response = client.delete(path='/users', json=payload)
+    response = client.delete(path='/users/<id>', json=payload)
     assert response.status_code == 200
 
 def test_app_user_get_endpoint() -> None:
     payload = {"first_name": "Jan", "last_name": "Kowalski"}
     client = app.test_client()
-    response = client.get(path='/users', json=payload)
+    response = client.get(path='/users/<id>', json=payload)
     assert response.status_code == 200
 
 def test_app_user_delete_endpoint() -> None:
     payload = {"first_name": "Jan", "last_name": "Kowalski"}
     client = app.test_client()
-    response = client.delete(path='/users', json=payload)
+    response = client.delete(path='/users/<id>', json=payload)
     assert response.status_code == 200
 
 def test_app_user_patch_endpoint() -> None:
     payload = {"first_name": "Jan", "last_name": "Kowalski"}
     client = app.test_client()
-    response = client.patch(path='/users', json=payload)
+    response = client.patch(path='/users/<id>', json=payload)
     assert response.status_code == 200
     
+def test_app_users_get_endpoint() -> None:
+    payload = {"first_name": "Jan", "last_name": "Kowalski"}
+    client = app.test_client()
+    response = client.get(path='/users/<id>', json=payload)
+    assert response.status_code == 501
