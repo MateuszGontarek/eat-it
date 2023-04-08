@@ -151,3 +151,4 @@ def test_calls_get_in_repository_on_calling_controller(
 def test_get_user_request_has_user_id_attribute(payload: dict) -> None:
     request = UserRequest(user=payload)
     assert request.user
+

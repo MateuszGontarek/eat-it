@@ -13,7 +13,7 @@ class AddUserController:
         pass
 
     def add(self, request: UserRequest) -> None:
-        print(request.user)
+        return NotImplemented
 
 
 class DeleteUserController:
@@ -21,7 +21,7 @@ class DeleteUserController:
         pass
 
     def delete(self, request: UserRequest) -> None:
-        print(request.user)
+        return NotImplemented
 
 
 class UpdateUserController:
@@ -29,14 +29,14 @@ class UpdateUserController:
         pass
 
     def update(self, request: UserRequest) -> None:
-        print(request.user)
+        return NotImplemented
 
 class PatchUserController:
     def __init__(self, repository: UserRepository) -> None:
         pass
 
     def patch(self, request: UserRequest) -> None:
-        print(request.user)
+        return NotImplemented
 
 
 class PutUserController:
@@ -44,11 +44,11 @@ class PutUserController:
         pass
 
     def put(self, request: UserRequest) -> None:
-        print(request.user)
+        return NotImplemented
 
 class GetUserController:
     def __init__(self, repository: UserRepository) -> None:
         pass
 
     def get(self, request: UserRequest) -> None:
-        print(request.user)
+        return NotImplemented

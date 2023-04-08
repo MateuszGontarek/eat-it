@@ -19,7 +19,7 @@ def test_app_user_create_endpoint() -> None:
 def test_app_user_update_endpoint() -> None:
     payload = {"first_name": "Jan", "last_name": "Kowalski"}
     client = app.test_client()
-    response = client.put(path='/users', json=payload)
+    response = client.put(path='/users/<id>', json=payload)
     assert response.status_code == 200
 
 def test_app_user_get_endpoint() -> None:
@@ -56,4 +56,4 @@ def test_app_users_get_endpoint() -> None:
     payload = {"first_name": "Jan", "last_name": "Kowalski"}
     client = app.test_client()
     response = client.get(path='/users/<id>', json=payload)
-    assert response.status_code == 501
+    assert response.status_code == 200
